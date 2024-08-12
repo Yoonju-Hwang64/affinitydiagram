@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affinity Diagram</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <Header>
+        <button id="home"><img src="./images/Logo.png" alt="" width="100px"></button>
+        <input type="text" contenteditable="true" id="fileTitle" placeholder="제목">
+        <div class="userContainer">
+            <div class="userList">
+                <img class="userProfile" src="./images/Icon/userProfile.png" width="40px"/>
+                <img class="userProfile" src="./images/Icon/userProfile.png" width="40px"/>
+                <img class="userProfile" src="./images/Icon/teamProfile36.png" width="40px"/>
+                <img class="userProfile" src="./images/Icon/share.png" width="40px"/>
+            </div>
+            <button id="export-btn">Export <img src="./images/Icon/exportBtn.png" alt="" width="18px"></button>
+        </div>
+    </Header>
+
+     <!-- API 키 입력 필드 및 버튼 -->
+     <input type="text" id="apiKeyInput" placeholder="API 키를 입력하세요">
+     <button onclick="setApiKey()">API 키 설정</button>
+ 
+
+    <Sidebar>
+        <button id="group"><img src="./images/Icon/grouping.png" alt="" width="24px"></button>
+        <button id="dataCleanup"><img src="./images/Icon/removeDuplicates.png" alt=""  width="24px"></button>
+        <button id="insight"><img src="./images/Icon/insight.png" alt=""  width="24px"></button>
+        <button id="headerExtraction"><img src="./images/Icon/topHeader.png" alt=""  width="24px"></button>
+    </Sidebar>
+
+    <div class="floatBtn">
+        <!-- <input type="text" id="noteInput" placeholder="내용을 입력하세요."> -->
+        <textarea id="noteInput" placeholder="Enter note data..."></textarea>
+        <button class="input-button" id="noteAdd"><img src="./images/Icon/textinput.png" alt="" width="36px"></button>
+        <input type="file" id="fileInput" accept=".xlsx, .xls"/>
+        <button class="input-button" id="uploadButton"><img src="./images/Icon/fileinput.png" alt="" width="36px"></button>
+    </div>
+    
+    <div class="floatBtn2">
+        <button id="colortoggle"></button>
+        <div class="colorContainer">
+            <button id="c1" class="color-btn"></button>
+            <button id="c2" class="color-btn"></button>
+            <button id="c3" class="color-btn"></button>
+            <button id="c4" class="color-btn"></button>
+            <button id="c5" class="color-btn"></button>
+        </div>
+    
+        <button id="fontSize">14</button>
+        <div id="fontSizeDropdown" class="dropdown">
+            <div class="FS f1" data-size="10px">10</div>
+            <div class="FS f2" data-size="12px">12</div>
+            <div class="FS f3 chosen" data-size="14px">14</div>
+            <div class="FS f4" data-size="16px">16</div>
+            <div class="FS f5" data-size="18px">18</div>
+        </div>
+    
+        <button id="fontWeight">B</button>
+        
+    </div>
+
+    <div class="floatBtn3">
+        <button id="deleteNote">삭제</button>
+        <button id="headerNote">헤더추출</button>
+        <button id="groupingNote">그룹핑</button>
+    </div>
+    <div id="notes"></div>
+    <div id="groups"></div>
+    
+    <div class="loading-container">
+        <div class="spinner"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
